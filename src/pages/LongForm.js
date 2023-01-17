@@ -1,27 +1,7 @@
 import React, { useReducer } from "react";
+import { initialState, reducer } from "../state/formReducer";
 
 const LongForm = () => {
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    gender: "",
-    education: "",
-    quantity: 0,
-    feedback: "",
-    term: false,
-  };
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "INPUT":
-        return { ...state, [action.payload.name]: action.payload.value };
-      case "TOGGLE":
-        return { ...state, term: !state.term };
-      default:
-        return state;
-    }
-  };
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const submit = (event) => {
@@ -145,13 +125,19 @@ const LongForm = () => {
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-3">Number of PCs</label>
           <div className="flex justify-between items-center gap-2 ">
-            <button className="bg-indigo-500 text-lg text-white rounded h-10 w-10 ">
+            <button
+              className="bg-indigo-500 text-lg text-white rounded h-10 w-10 "
+              onClick={() => dispatch({ type: "DECREMENT" })}
+            >
               -
             </button>
             <div className="border flex-1 flex justify-center items-center h-10 rounded-md border-gray-300">
-              <span className="text-lg">0</span>
+              <span className="text-lg">{state.quantity}</span>
             </div>
-            <button className="bg-indigo-500 text-lg text-white rounded h-10 w-10">
+            <button
+              className="bg-indigo-500 text-lg text-white rounded h-10 w-10"
+              onClick={() => dispatch({ type: "INCREMENT" })}
+            >
               +
             </button>
           </div>
