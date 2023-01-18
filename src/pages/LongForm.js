@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { actionTypes } from "../state/actionTypes";
 import { initialState, reducer } from "../state/formReducer";
 
 const LongForm = () => {
@@ -25,7 +26,7 @@ const LongForm = () => {
             id="firstName"
             onBlur={(e) =>
               dispatch({
-                type: "INPUT",
+                type: actionTypes.INPUT,
                 payload: { name: e.target.name, value: e.target.value },
               })
             }
@@ -41,7 +42,7 @@ const LongForm = () => {
             id="lastName"
             onBlur={(e) =>
               dispatch({
-                type: "INPUT",
+                type: actionTypes.INPUT,
                 payload: { name: e.target.name, value: e.target.value },
               })
             }
@@ -57,7 +58,7 @@ const LongForm = () => {
             id="email"
             onBlur={(e) =>
               dispatch({
-                type: "INPUT",
+                type: actionTypes.INPUT,
                 payload: { name: e.target.name, value: e.target.value },
               })
             }
@@ -74,7 +75,7 @@ const LongForm = () => {
                 value="male"
                 onBlur={(e) =>
                   dispatch({
-                    type: "INPUT",
+                    type: actionTypes.INPUT,
                     payload: { name: e.target.name, value: e.target.value },
                   })
                 }
@@ -91,7 +92,7 @@ const LongForm = () => {
                 value="female"
                 onBlur={(e) =>
                   dispatch({
-                    type: "INPUT",
+                    type: actionTypes.INPUT,
                     payload: { name: e.target.name, value: e.target.value },
                   })
                 }
@@ -111,7 +112,7 @@ const LongForm = () => {
             id="education"
             onChange={(e) =>
               dispatch({
-                type: "INPUT",
+                type: actionTypes.INPUT,
                 payload: { name: e.target.name, value: e.target.value },
               })
             }
@@ -127,7 +128,7 @@ const LongForm = () => {
           <div className="flex justify-between items-center gap-2 ">
             <button
               className="bg-indigo-500 text-lg text-white rounded h-10 w-10 "
-              onClick={() => dispatch({ type: "DECREMENT" })}
+              onClick={() => dispatch({ type: actionTypes.DECREMENT })}
             >
               -
             </button>
@@ -136,7 +137,7 @@ const LongForm = () => {
             </div>
             <button
               className="bg-indigo-500 text-lg text-white rounded h-10 w-10"
-              onClick={() => dispatch({ type: "INCREMENT" })}
+              onClick={() => dispatch({ type: actionTypes.INCREMENT })}
             >
               +
             </button>
@@ -153,7 +154,7 @@ const LongForm = () => {
             rows="4"
             onBlur={(e) =>
               dispatch({
-                type: "INPUT",
+                type: actionTypes.INPUT,
                 payload: { name: e.target.name, value: e.target.value },
               })
             }
@@ -167,7 +168,7 @@ const LongForm = () => {
               type="checkbox"
               name="term"
               id="terms"
-              onClick={() => dispatch({ type: "TOGGLE" })}
+              onClick={() => dispatch({ type: actionTypes.TOGGLE })}
             />
             <label htmlFor="terms">I agree to terms and conditions</label>
           </div>
